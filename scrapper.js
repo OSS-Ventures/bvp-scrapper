@@ -1,6 +1,5 @@
 const fs = require('fs')
 const jsdom = require('jsdom')
-const { DateTime } = require('luxon')
 const { JSDOM } = jsdom
 const fetch = require('node-fetch')
 const Airtable = require('airtable')
@@ -8,7 +7,7 @@ const Airtable = require('airtable')
 require('dotenv').config()
 
 // Read the HTML file
-function parse(body) {
+function parse (body) {
   // Parse the HTML with jsdom
   const dom = new JSDOM(body)
   const payload = dom.window.document.getElementById('__NEXT_DATA__')
@@ -33,28 +32,28 @@ fetch(process.env.BVP_URL)
 
 function pushToAirtable () {
   if (process.env.AIRTABLE_SYNC === true) {
-    console.log("Grabbing the last publication for Airtable...")
+    console.log('Grabbing the last publication for Airtable...')
     const jsonData = JSON.parse(fs.readFileSync('bvp-history.json', 'utf8'))
     const lastObject = jsonData.at(-1)
     console.log(lastObject)
-    const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('appNcXjwWZvRIix9R')
+    const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base('appNcXjwWZvRIix9R')
 
     base('Cloud Index').create([
       {
-        "fields": {
-          "date": lastObject.date,
-          "median": lastObject.median,
-          "topQuartile": lastObject.topQuartile,
-          "bottomQuartile": lastObject.bottomQuartile
+        fields: {
+          date: lastObject.date,
+          median: lastObject.median,
+          topQuartile: lastObject.topQuartile,
+          bottomQuartile: lastObject.bottomQuartile
         }
       }
-    ], function(err, records) {
+    ], function (err, records) {
       if (err) {
-        console.error(err);
-        return;
+        console.error(err)
+        return
       }
       records.forEach(function (record) {
-        console.log(record.getId());
+        console.log(record.getId())
       })
     })
   } else {

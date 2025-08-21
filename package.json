@@ -4,7 +4,9 @@
     "dotenv": "^17.2.1",
     "jsdom": "^26.1.0",
     "json-2-csv": "^5.5.9",
-    "luxon": "^3.7.1",
     "node-fetch": "2"
+  },
+  "devDependencies": {
+    "standard": "^17.1.2"
   }
 }
