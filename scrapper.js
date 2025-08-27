@@ -14,10 +14,9 @@ function parse (body) {
 
   if (payload) {
     const jsonData = JSON.parse(payload.textContent).props.pageProps.iotData
-    fs.writeFileSync('bvp-history.json', JSON.stringify(jsonData, null, 2), 'utf-8')
     jsonData.forEach(item => {
-      const date = new Date(item.date)
-      item.date = date.toISOString().split('T')[0]
+      const originalDate = new Date(item.date)
+      item.date = originalDate.toISOString().split('T')[0]
     })
     fs.writeFileSync('bvp-history.json', JSON.stringify(jsonData, null, 2), 'utf-8')
   } else {

@@ -19,11 +19,10 @@ If the env var `AIRTABLE_SYNC` is set to `true`, the script will also push the m
 ## Requirements
 
 - NodeJS (tested on v24.5.0).
-- Yarn (tested in v1.22.22).
 - Airtable API key (to use Airtable sync)
 
 ## Usage
 
 ```sh
-node scrapper.js
+npm run
 ```
