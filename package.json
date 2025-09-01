@@ -10,6 +10,6 @@
     "standard": "^17.1.2"
   },
   "scripts": {
-    "run": "node scrapper.js"
+    "scrapper": "node scrapper.js"
   }
 }
