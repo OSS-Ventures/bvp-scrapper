@@ -28,3 +28,5 @@ jobs:
     - run: npm run scrapper
       env:
         AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+        AIRTABLE_SYNC: ${{ vars.AIRTABLE_SYNC }}
+        BVP_URL: ${{ vars.BVP_URL }}
