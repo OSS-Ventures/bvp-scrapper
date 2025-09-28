@@ -8,8 +8,8 @@ require('dotenv').config()
 
 // Debugging outputs
 
-console.log(`AIRTABLE_SYNC = + ${process.env.AIRTABLE_SYNC}`)
-console.log(`BVP_URL = + ${process.env.BVP_URL}`)
+console.log(`AIRTABLE_SYNC = ${process.env.AIRTABLE_SYNC}`)
+console.log(`BVP_URL = ${process.env.BVP_URL}`)
 
 // Read the HTML file
 function parse (body) {

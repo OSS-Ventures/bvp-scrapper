@@ -24,5 +24,5 @@ If the env var `AIRTABLE_SYNC` is set to `true`, the script will also push the m
 ## Usage
 
 ```sh
-npm run
+npm run scrapper
 ```
